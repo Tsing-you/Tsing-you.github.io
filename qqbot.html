@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +28,9 @@
             transform: translateY(-50%);
             width: 220px;
             padding: 1.5rem;
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             backdrop-filter: blur(5px);
         }
@@ -95,7 +96,7 @@
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
@@ -167,6 +168,7 @@
             .sidebar {
                 display: none;
             }
+
             .container {
                 margin-left: auto;
                 padding: 1rem;
@@ -180,6 +182,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- 侧边栏导航 -->
     <nav class="sidebar">
@@ -187,6 +190,7 @@
             <li><a href="#features" class="sidebar-link">主要功能</a></li>
             <li><a href="#quickstart" class="sidebar-link">快速开始</a></li>
             <li><a href="#commands" class="sidebar-link">命令列表</a></li>
+            <li><a href="#whattodo" class="sidebar-link">接下来的工作</a></li>
             <li><a href="#notice" class="sidebar-link">注意事项</a></li>
         </ul>
     </nav>
@@ -195,15 +199,22 @@
     <div class="container">
         <header class="doc-header">
             <h1>QQ机器人使用文档</h1>
-            <p>版本 1.0 | 最后更新：2023年10月</p>
+            <p>版本 0.4 | 最后更新：2025年3月28日</p>
         </header>
+
+        <div class="feature-card">
+            <h3>写在前面</h3>
+            <p>本bot基于NcatBot 和 Napcat框架，在扶摇云上使用Ubuntu挂载，实现Bot 的功能。</p>
+            <p><b>本项目仅作技术学习使用，在服务器和本地均不主动保存任何数据，严禁用于任何非法用途。</b></p>
+            <p>表示感谢。</p>
+        </div>
 
         <section class="doc-section" id="features">
             <h2>✨ 主要功能</h2>
             <div class="feature-list">
                 <div class="feature-card">
-                    <h3>自动回复</h3>
-                    <p>支持关键词触发、正则匹配等多种回复模式</p>
+                    <h3>发送图片</h3>
+                    <p>支持关键词触发模式</p>
                 </div>
                 <!-- 其他功能卡片... -->
             </div>
@@ -212,10 +223,17 @@
         <section class="doc-section" id="quickstart">
             <h2>🚀 快速开始</h2>
             <ol>
-                <li>安装依赖库：
-                    <pre><code>pip install -r requirements.txt</code></pre>
-                </li>
-                <!-- 其他步骤... -->
+                <div class="feature-card">
+                    <li>确保qqbot已经被Tsingyou拉近了群聊；
+                    </li>
+                    <li>发送关键词触发：
+                        <pre><code>冲一/二/三发 tag1 tag2 tag3...</code></pre>
+                        示例：
+                        <pre><code>冲一发 ロリ</code></pre>
+                        <pre><code>冲两发 000 イラスト</code></pre>
+                    </li>
+                    <!-- 其他步骤... -->
+                </div>
             </ol>
         </section>
 
@@ -223,19 +241,244 @@
             <h2>📜 命令列表</h2>
             <div class="feature-list">
                 <div class="feature-card">
-                    <h3>/天气 北京</h3>
-                    <p>查询指定城市天气</p>
+                    <h5>感谢Jitsu大佬提供的API接口</h5>
+                    <p>
+                        <font size="3">https://img.jitsu.top/#/</font>
+                    </p>
                 </div>
+                <br>
+
+                <div class="feature-card">
+                    <table class="compact-table">
+                        <tbody>
+                            <tr>
+                                <td>名称</td>
+                                <td>类型</td>
+                                <td>可选值</td>
+                                <td>必要性</td>
+                            </tr>
+                            <tr>
+                                <td>触发词</td>
+                                <td>string</td>
+                                <td>冲一/二/三发</td>
+                                <td>必要</td>
+                            </tr>
+                            <tr>
+                                <td>keyword</td>
+                                <td>string</td>
+                                <td>pixiv的tag，宁缺勿错</td>
+                                <td>可缺省</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+
+                <div class="feature-card">
+                    <h5>所有tag均来源pixiv。</h5>
+                    <br>
+                    <h3>常用人物标签</h3>
+                    <style>
+                        .compact-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 1rem 0;
+                            font-size: 0.9em;
+                        }
+
+                        .compact-table td {
+                            padding: 8px 12px;
+                            border: 1px solid #e0e0e0;
+                            white-space: nowrap;
+                        }
+
+                        .compact-table tr:nth-child(even) {
+                            background-color: #f8f9fa;
+                        }
+
+                        @media (max-width: 768px) {
+                            .compact-table {
+                                display: block;
+                                overflow-x: auto;
+                            }
+
+                            .compact-table td {
+                                min-width: 120px;
+                            }
+                        }
+                    </style>
+
+                    <table class="compact-table">
+                        <tbody>
+                            <tr>
+                                <td>美少女（美少女）</td>
+                                <td>ロリ（萝莉）</td>
+                                <td>ショタ（正太）</td>
+                                <td>メイド（女仆）</td>
+                            </tr>
+                            <tr>
+                                <td>バニーガール（兔女郎）</td>
+                                <td>猫耳（猫耳）</td>
+                                <td>獣耳（兽耳）</td>
+                                <td>天使（天使）</td>
+                            </tr>
+                            <tr>
+                                <td>悪魔（恶魔）</td>
+                                <td>魔法少女（魔法少女）</td>
+                                <td>戦闘服（战斗服）</td>
+                                <td>和服（和服）</td>
+                            </tr>
+                            <tr>
+                                <td>巫女（巫女）</td>
+                                <td>吸血鬼（吸血鬼）</td>
+                                <td>エルフ（精灵）</td>
+                                <td>ネコミミ（猫耳娘）</td>
+                            </tr>
+                            <tr>
+                                <td>メガネ（眼镜）</td>
+                                <td>ツインテール（双马尾）</td>
+                                <td>ポニーテール（单马尾）</td>
+                                <td>制服（制服）</td>
+                            </tr>
+                            <tr>
+                                <td>水着（泳装）</td>
+                                <td>巨乳（巨乳）</td>
+                                <td>貧乳（贫乳）</td>
+                                <td>セーラー服（水手服）</td>
+                            </tr>
+                            <tr>
+                                <td>ゴスロリ（哥特萝莉）</td>
+                                <td>メカ（机械）</td>
+                                <td>サイボーグ（赛博格）</td>
+                                <td>騎士（骑士）</td>
+                            </tr>
+                            <tr>
+                                <td>王子（王子）</td>
+                                <td>姫（公主）</td>
+                                <td>魔王（魔王）</td>
+                                <td>忍者（忍者）</td>
+                            </tr>
+                            <tr>
+                                <td>サムライ（武士）</td>
+                                <td>ポケモン（宝可梦）</td>
+                                <td>ヴァンパイア（吸血鬼）</td>
+                                <td>サイバー（赛博）</td>
+                            </tr>
+                            <tr>
+                                <td>アンドロイド（机器人）</td>
+                                <td>ツンデレ（傲娇）</td>
+                                <td>ヤンデレ（病娇）</td>
+                                <td>眼帯（眼罩）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+
+                    <h3>常用画风标签</h3>
+                    <table class="compact-table">
+                        <tbody>
+                            <tr>
+                                <td>イラスト（插画）</td>
+                                <td>水彩風（水彩风格）</td>
+                                <td>厚塗り（厚涂）</td>
+                                <td>セル画（赛璐珞）</td>
+                            </tr>
+                            <tr>
+                                <td>シネマティック（电影感）</td>
+                                <td>グリッチ（故障艺术）</td>
+                                <td>ポップ（波普风）</td>
+                                <td>レトロ（复古风）</td>
+                            </tr>
+                            <tr>
+                                <td>モノクロ（单色）</td>
+                                <td>サイバーパンク（赛博朋克）</td>
+                                <td colspan="2" style="border:0; padding:0"><!-- 保持表格结构 --></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <h3>常用杂项标签</h3>
+                    <table class="compact-table">
+                        <tbody>
+                            <tr>
+                                <td>背景（背景）</td>
+                                <td>風景（风景）</td>
+                                <td>星空（星空）</td>
+                                <td>花火（烟花）</td>
+                            </tr>
+                            <tr>
+                                <td>武器（武器）</td>
+                                <td>メカニック（机械）</td>
+                                <td>ファンタジー（奇幻）</td>
+                                <td>SF（科幻）</td>
+                            </tr>
+                            <tr>
+                                <td>都市（城市）</td>
+                                <td>建築（建筑）</td>
+                                <td>学校（学校）</td>
+                                <td>戦争（战争）</td>
+                            </tr>
+                            <tr>
+                                <td>グルメ（美食）</td>
+                                <td>動物（动物）</td>
+                                <td>植物（植物）</td>
+                                <td>季節（季节）</td>
+                            </tr>
+                            <tr>
+                                <td>雨（雨）</td>
+                                <td>雪（雪）</td>
+                                <td>海（海洋）</td>
+                                <td>山（山脉）</td>
+                            </tr>
+                            <tr>
+                                <td>夜空（夜空）</td>
+                                <td>雲（云朵）</td>
+                                <td>クリスマス（圣诞节）</td>
+                                <td>ハロウィン（万圣节）</td>
+                            </tr>
+                            <tr>
+                                <td>和風（和风）</td>
+                                <td>中華風（中国风）</td>
+                                <td>ヨーロッパ（欧洲）</td>
+                                <td>未来都市（未来都市）</td>
+                            </tr>
+                            <tr>
+                                <td>廃墟（废墟）</td>
+                                <td>ダーク（黑暗系）</td>
+                                <td>キラキラ（闪亮）</td>
+                                <td>グラデーション（渐变）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <!-- 其他命令卡片... -->
+            </div>
+        </section>
+
+        <section class="doc-section" id="features">
+            <h2>✨ 接下来的工作</h2>
+            <div class="feature-list">
+                <div class="feature-card">
+                    <li>接入大语言模型聊天
+                    </li>
+                    <li>改用更好的图片api源
+                    </li>
+                    <li>改用NcatBot 插件形式部署
+                    </li>
+                    <li>陆续完善github上的该项目
+                    </li>
+                </div>
+                <!-- 其他功能卡片... -->
             </div>
         </section>
 
         <section class="doc-section" id="notice">
             <h2>⚠️ 注意事项</h2>
             <div class="warning">
-                <h3>重要提示</h3>
+                <h3>提示</h3>
                 <ul>
-                    <li>请遵守腾讯QQ机器人开发规范</li>
+                    <li>尽量不要短时间内刷屏（一秒三次以上）</li>
                     <!-- 其他提示... -->
                 </ul>
             </div>
@@ -253,9 +496,11 @@
         const sections = document.querySelectorAll('.doc-section');
         const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-        function activateNav() {
+        function activateNav()
+        {
             let current = '';
-            sections.forEach(section => {
+            sections.forEach(section =>
+            {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 if (window.scrollY >= sectionTop - sectionHeight * 0.25) {
@@ -263,7 +508,8 @@
                 }
             });
 
-            sidebarLinks.forEach(link => {
+            sidebarLinks.forEach(link =>
+            {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
@@ -272,13 +518,16 @@
         }
 
         // 滚动监听
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', () =>
+        {
             requestAnimationFrame(activateNav);
         });
 
         // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor =>
+        {
+            anchor.addEventListener('click', function (e)
+            {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 target.scrollIntoView({
@@ -289,4 +538,5 @@
         });
     </script>
 </body>
+
 </html>
