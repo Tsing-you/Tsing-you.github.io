@@ -23,6 +23,9 @@
             margin: 0 auto;
             padding: 2rem 1rem;
             min-height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .footer {
@@ -32,10 +35,15 @@
             height: 60px;
             background-color: rgba(255, 255, 255, 0.9);
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;  /* 修改为居中 */
             align-items: center;
             padding: 0 2rem;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            text-align: center;  /* 新增标题居中 */
+            margin-bottom: 2rem;
         }
 
         .nav-button {
@@ -54,12 +62,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>你好，我是Tsing-You</h1>
+        <h1>你好，我是TsingYou</h1>
         <!-- 在此处添加你的个人内容 -->
     </div>
 
     <div class="footer">
-        <a href="qqbot.html" class="nav-button">前往QQ机器人页面</a>
+        <a href="qqbot.html" class="nav-button">前往QQ机器人说明文档</a>
     </div>
 </body>
 </html>
