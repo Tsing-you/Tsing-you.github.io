@@ -199,7 +199,7 @@
     <div class="container">
         <header class="doc-header">
             <h1>QQ机器人使用文档</h1>
-            <p>版本 0.4 | 最后更新：2025年3月28日</p>
+            <p>版本 0.5 | 最后更新：2025年3月28日</p>
         </header>
 
         <div class="feature-card">
@@ -214,7 +214,12 @@
             <div class="feature-list">
                 <div class="feature-card">
                     <h3>发送图片</h3>
-                    <p>支持关键词触发模式</p>
+                    <p>支持关键词触发模式。</p>
+                </div>
+                <br>
+                <div class="feature-card">
+                    <h3>AI对话</h3>
+                    <p>支持角色扮演，多轮对话。</p>
                 </div>
                 <!-- 其他功能卡片... -->
             </div>
@@ -224,14 +229,35 @@
             <h2>🚀 快速开始</h2>
             <ol>
                 <div class="feature-card">
-                    <li>确保qqbot已经被Tsingyou拉近了群聊；
+                    <li>确保qqbot已经被Tsingyou拉进了群聊；
                     </li>
                     <li>发送关键词触发：
                         <pre><code>冲一/二/三发 tag1 tag2 tag3...</code></pre>
                         示例：
                         <pre><code>冲一发 ロリ</code></pre>
                         <pre><code>冲两发 000 イラスト</code></pre>
-                    </li>
+                        <br><hr/><br>
+                        <pre><code>ai/Ai/AI 想要发送的消息...</code></pre>
+                        示例：
+                        <pre><code>ai 介绍你自己</code></pre>
+                        <pre><code>ai 重复我的问题</code></pre>
+                        <br><hr/><br>
+                        <pre><code>角色扮演 xxx（仅支持已预载的角色）...</code></pre>
+                        示例：
+                        <pre><code>角色扮演 猫娘</code></pre>
+                    </li><br>
+                    <div class="warning">
+                        <h3>提示</h3>
+                        <ul>
+                            <li>角色扮演指令仅用发送一次即可，后续调用仍为ai开头。</li>
+                            <!-- 其他提示... -->
+                        </ul>
+                    </div><br>
+                    <h3>调用示例</h3>
+                    <pre><p style="color: red; font-size: 16px;">输入：</p><code>角色扮演 猫娘</code></pre>
+                    <pre><p style="color: red; font-size: 16px;">输出：</p><code>角色已切换为：猫娘 </code></pre>
+                    <pre><p style="color: red; font-size: 16px;">输入：</p><code>ai 介绍你自己</code></pre>
+                    <pre><p style="color: red; font-size: 16px;">输出：</p><code>（歪头）喵~我是neko，身高160cm，体重50kg，三围看起来不错喵~性格可爱、粘人，十分忠诚，只对主人专一喵~我深爱着主人，喜欢被人摸和卖萌，爱好是看小说喵~我还掌握了一些常识和猫娘独特的知识喵~【眨眼】【期待】</code></pre>
                     <!-- 其他步骤... -->
                 </div>
             </ol>
@@ -250,31 +276,84 @@
 
                 <div class="feature-card">
                     <table class="compact-table">
+                        <h3>生成图片</h3>
                         <tbody>
                             <tr>
                                 <td>名称</td>
                                 <td>类型</td>
                                 <td>可选值</td>
-                                <td>必要性</td>
+                                <td>必要</td>
                             </tr>
                             <tr>
                                 <td>触发词</td>
                                 <td>string</td>
-                                <td>冲一/二/三发</td>
-                                <td>必要</td>
+                                <td>冲n发</td>
+                                <td>true</td>
                             </tr>
                             <tr>
                                 <td>keyword</td>
                                 <td>string</td>
                                 <td>pixiv的tag，宁缺勿错</td>
-                                <td>可缺省</td>
+                                <td>false</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <br>
+                <div class="feature-card">
+                    <table class="compact-table">
+                        <h3>AI对话</h3>
+                        <tbody>
+                            <tr>
+                                <td>名称</td>
+                                <td>类型</td>
+                                <td>可选值</td>
+                                <td>必要</td>
+                            </tr>
+                            <tr>
+                                <td>触发词</td>
+                                <td>string</td>
+                                <td>ai/AI/Ai</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>keyword</td>
+                                <td>string</td>
+                                <td>想要发给ai的文本</td>
+                                <td>true</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><br>
 
                 <div class="feature-card">
+                    <table class="compact-table">
+                        <h3>角色切换</h3>
+                        <tbody>
+                            <tr>
+                                <td>名称</td>
+                                <td>类型</td>
+                                <td>可选值</td>
+                                <td>必要</td>
+                            </tr>
+                            <tr>
+                                <td>触发词</td>
+                                <td>string</td>
+                                <td>角色切换</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>keyword</td>
+                                <td>string</td>
+                                <td>默认/猫咪/猫娘/魅魔</td>
+                                <td>true</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><br>
+
+                <div class="feature-card">
+                    <h2>常用pixiv标签</h2>
                     <h5>所有tag均来源pixiv。</h5>
                     <br>
                     <h3>常用人物标签</h3>
@@ -465,7 +544,7 @@
             <h2>✨ 接下来的工作</h2>
             <div class="feature-list">
                 <div class="feature-card">
-                    <li>接入大语言模型聊天
+                    <li><s>接入大语言模型聊天</s>
                     </li>
                     <li>改用更好的图片api源
                     </li>
