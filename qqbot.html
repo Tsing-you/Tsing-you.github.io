@@ -232,10 +232,10 @@
                     <li>确保qqbot已经被Tsingyou拉进了群聊；
                     </li>
                     <li>发送关键词触发：
-                        <pre><code>冲一/二/三发 tag1 tag2 tag3...</code></pre>
+                        <pre><code>冲一发 num tag1 tag2 tag3...</code></pre>
                         示例：
                         <pre><code>冲一发 ロリ</code></pre>
-                        <pre><code>冲两发 000 イラスト</code></pre>
+                        <pre><code>冲一发 5 イラスト 女孩子 000</code></pre>
                         <br><hr/><br>
                         <pre><code>ai/Ai/AI 想要发送的消息...</code></pre>
                         示例：
@@ -289,6 +289,12 @@
                                 <td>string</td>
                                 <td>冲n发</td>
                                 <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>数量</td>
+                                <td>int</td>
+                                <td>1<=n<=30</td>
+                                <td>false,默认为1</td>
                             </tr>
                             <tr>
                                 <td>keyword</td>
@@ -546,7 +552,7 @@
                 <div class="feature-card">
                     <li><s>接入大语言模型聊天</s>
                     </li>
-                    <li>改用更好的图片api源
+                    <li><s>改用更好的图片api源</s>
                     </li>
                     <li>改用NcatBot 插件形式部署
                     </li>
