@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="改进日志">
+    <title>改进日志</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* 版本卡片样式 */
+        .version-card {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+
+        .version-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1.5rem;
+        }
+
+        .version-date {
+            font-size: 1.3em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .version-actions a {
+            background: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 24px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .version-actions a:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 内容区块 */
+        .version-content h4 {
+            color: #3498db;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .version-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .version-content li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .version-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 1.2em;
+        }
+
+        /* 新增底部样式 */
+        .footer {
+            background: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-button.secondary {
+            background: #e0e0e0;
+            color: #333;
+            margin-left: 1rem;
+        }
+
+        .nav-button.secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* 按钮样式优化 */
+        .nav-button {
+            background: #3498db;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .version-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="doc-header">
+            <h1>改进日志</h1>
+            <p>版本 0.7 | 最后更新：2025年4月5日</p>
+        </header>
+
+        <section class="doc-section">
+            <h2>✨ 版本历史</h2>
+            <!-- 版本卡片 -->
+            <div class="version-card">
+                <div class="version-header">
+                    <h3 class="version-date">2025-04-05</h3>
+                    <!-- <div class="version-actions">
+                        <a href="#v0.7.1">查看详情</a>
+                    </div> -->
+                </div>
+                <div class="version-content">
+                    <h4>新增功能</h4>
+                    <ul>
+                        <li>群聊私聊通用</li>
+                    </ul>
+                    <h4>修复问题</h4>
+                    <ul>
+                        <li>修复图片数量缺少问题</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="version-card">
+                <div class="version-header">
+                    <h3 class="version-date">2025-04-04</h3>
+                    <!-- <div class="version-actions">
+                        <a href="#v0.7.0">查看详情</a>
+                    </div> -->
+                </div>
+                <div class="version-content">
+                    <h4>新增功能</h4>
+                    <ul>
+                        <li>支持多轮对话功能</li>
+                        <li>新增快手视频推送</li>
+                        <li>新增每日新闻</li>
+                    </ul>
+                    <h4>修复问题</h4>
+                    <ul>
+                        <li>插件化组织</li>
+                        <li><del>使用更专业的图源</del>响应过慢失败</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="version-card">
+            <div class="version-header">
+                <h3 class="version-date">2025-03-31</h3>
+                <!-- <div class="version-actions">
+                    <a href="#v0.7.1">查看详情</a>
+                </div> -->
+            </div>
+            <div class="version-content">
+                <h4>新增功能</h4>
+                <ul>
+                    <li>指定图片数量</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header">
+                <h3 class="version-date">2025-03-30</h3>
+                <!-- <div class="version-actions">
+                    <a href="#v0.7.1">查看详情</a>
+                </div> -->
+            </div>
+            <div class="version-content">
+                <h4>新增功能</h4>
+                <ul>
+                    <li>新增AI角色扮演对话功能</li>
+                </ul>
+                <h4>修复问题</h4>
+                <ul>
+                    <li>优化图片响应过慢问题</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header">
+                <h3 class="version-date">2025-03-29</h3>
+                <!-- <div class="version-actions">
+                    <a href="#v0.7.1">查看详情</a>
+                </div> -->
+            </div>
+            <div class="version-content">
+                <h4>新增功能</h4>
+                <ul>
+                    <li>支持搜索图片新增tag</li>
+                    <li>上云 24h</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header">
+                <h3 class="version-date">2025-03-28</h3>
+                <!-- <div class="version-actions">
+                    <a href="#v0.7.1">查看详情</a>
+                </div> -->
+            </div>
+            <div class="version-content">
+                <h4>新增功能</h4>
+                <ul>
+                    <li>支持关键词触发 发送单张图片，本地部署</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- <section class="doc-section">
+            <h2>💡 下一步计划</h2>
+            <ul>
+                <li>接入大语言模型聊天</li>
+                <li>改用更好的图片API源</li>
+            </ul>
+        </section> -->
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="footer">
+        <div class="footer-content">
+            <a href="https://tsing-you.github.io/qqbot.html" class="nav-button">返回文档</a>
+            <a href="https://github.com/Tsing-You/qqbot" class="nav-button secondary">GitHub仓库</a>
+        </div>
+        <div class="copyright">
+            2025 Tsing-You.
+        </div>
+    </div>
+</body>
+
+</html>
