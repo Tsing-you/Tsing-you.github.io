@@ -200,6 +200,683 @@
     <div class="container">
         <header class="doc-header">
             <h1>QQ机器人使用文档</h1>
+            <p>版本 0.8 | 最后更新：2025年4月6日</p>
+        </header>
+
+        <div class="feature-card">
+            <h3>写在前面</h3>
+            <p>本bot基于NcatBot 和 Napcat框架，在扶摇云上使用Ubuntu挂载，实现Bot 的功能。</p>
+            <p><b>本项目仅作技术学习使用，在服务器和本地均不主动保存任何数据，严禁用于任何非法用途。</b></p>
+            <p>表示感谢。</p>
+        </div>
+
+        <section class="doc-section" id="features">
+            <h2>✨ 主要功能</h2>
+            <div class="feature-list">
+                <div class="feature-card">
+                    <h3>发送图片</h3>
+                    <p>支持关键词触发模式与定时触发模式。</p>
+                </div>
+                <br>
+                <div class="feature-card">
+                    <h3>AI对话</h3>
+                    <p>支持角色扮演，多轮对话。</p>
+                </div>
+                <br>
+                <div class="feature-card">
+                    <h3>来点视频</h3>
+                    <p>支持关键词触发模式与定时触发模式随机发送快手视频。</p>
+                </div>
+                <br>
+                <div class="feature-card">
+                    <h3>每日新闻</h3>
+                    <p>每天发送60s读懂世界。</p>
+                </div>
+                <br>
+                <!-- 其他功能卡片... -->
+            </div>
+        </section>
+
+        <section class="doc-section" id="quickstart">
+            <h2>🚀 快速开始</h2>
+            <ol>
+                <div class="feature-card">
+                    <li>确保qqbot已经被Tsingyou拉进了群聊或加了好友；
+                    </li>
+                    <li>发送关键词触发：
+                        <pre><code>冲一发 num tag1 tag2 tag3...</code></pre>
+                        示例：
+                        <pre><code>冲一发 ロリ</code></pre>
+                        <pre><code>冲一发 5 イラスト 女孩子 000</code></pre>
+                        <br><hr/><br>
+                        <pre><code>冲四发 tag</code></pre>
+                        <br><hr/><br>
+                        <pre><code>ai/Ai/AI 想要发送的消息...</code></pre>
+                        示例：
+                        <pre><code>ai 介绍你自己</code></pre>
+                        <pre><code>ai 重复我的问题</code></pre>
+                        <br><hr/><br>
+                        <pre><code>角色扮演 xxx（仅支持已预载的角色）...</code></pre>
+                        示例：
+                        <pre><code>角色扮演 猫娘</code></pre>
+                    </li><br>
+                    <div class="warning">
+                        <h3>提示</h3>
+                        <ul>
+                            <li>角色扮演指令仅用发送一次即可，后续调用仍为ai开头。</li>
+                            <!-- 其他提示... -->
+                        </ul>
+                    </div><br>
+                    <h3>调用示例</h3>
+                    <pre><p style="color: red; font-size: 16px;">输入：</p><code>角色扮演 猫娘</code></pre>
+                    <pre><p style="color: red; font-size: 16px;">输出：</p><code>角色已切换为：猫娘 </code></pre>
+                    <pre><p style="color: red; font-size: 16px;">输入：</p><code>ai 介绍你自己</code></pre>
+                    <pre><p style="color: red; font-size: 16px;">输出：</p><code>（歪头）喵~我是neko，身高160cm，体重50kg，三围看起来不错喵~性格可爱、粘人，十分忠诚，只对主人专一喵~我深爱着主人，喜欢被人摸和卖萌，爱好是看小说喵~我还掌握了一些常识和猫娘独特的知识喵~【眨眼】【期待】</code></pre>
+                    <br><hr/>
+                    <pre><code>来点视频</code></pre><hr/>
+                    <pre><code>每日新闻无需触发，每日定时发送。</code></pre>
+                    <!-- 其他步骤... -->
+                </div>
+            </ol>
+        </section>
+
+        <section class="doc-section" id="commands">
+            <h2>📜 命令列表</h2>
+            <div class="feature-list">
+                <div class="feature-card">
+                    <table class="compact-table">
+                        <h3>生成图片</h3>
+                        <br>
+                        <h4>冲一发</h4>
+                        <tbody>
+                            <tr>
+                                <td>名称</td>
+                                <td>类型</td>
+                                <td>可选值</td>
+                                <td>必要</td>
+                            </tr>
+                            <tr>
+                                <td>触发词</td>
+                                <td>string</td>
+                                <td>冲n发</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>数量</td>
+                                <td>int</td>
+                                <td>1<=n<=30</td>
+                                <td>false,默认为1</td>
+                            </tr>
+                            <tr>
+                                <td>keyword</td>
+                                <td>string</td>
+                                <td>pixiv的tag，宁缺勿错</td>
+                                <td>false</td>
+                            </tr>
+                        </tbody></table>
+                        <table class="compact-table">
+                        <br>
+                        <h4>冲四发</h4>
+                        <tbody>
+                            <tr>
+                                <td>名称</td>
+                                <td>类型</td>
+                                <td>可选值</td>
+                                <td>必要</td>
+                            </tr>
+                            <tr>
+                                <td>触发词</td>
+                                <td>string</td>
+                                <td>冲四发</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>keyword</td>
+                                <td>string</td>
+                                <td>女仆、jk制服、兔女郎、夏日泳装、动漫类<br>萝莉、御姐、巨乳、丰满微胖、黑丝、白丝<br>肉丝、网丝、吊带袜、腿控、脚控、旗袍</td>
+                                <td>false</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <br>
+                <div class="feature-card">
+                    <table class="compact-table">
+                        <h3>AI对话</h3>
+                        <tbody>
+                            <tr>
+                                <td>名称</td>
+                                <td>类型</td>
+                                <td>可选值</td>
+                                <td>必要</td>
+                            </tr>
+                            <tr>
+                                <td>触发词</td>
+                                <td>string</td>
+                                <td>ai/AI/Ai</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>keyword</td>
+                                <td>string</td>
+                                <td>想要发给ai的文本</td>
+                                <td>true</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><br>
+
+                <div class="feature-card">
+                    <table class="compact-table">
+                        <h3>角色切换</h3>
+                        <tbody>
+                            <tr>
+                                <td>名称</td>
+                                <td>类型</td>
+                                <td>可选值</td>
+                                <td>必要</td>
+                            </tr>
+                            <tr>
+                                <td>触发词</td>
+                                <td>string</td>
+                                <td>角色切换</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>keyword</td>
+                                <td>string</td>
+                                <td>默认/猫咪/猫娘/魅魔</td>
+                                <td>true</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><br>
+
+                <div class="feature-card">
+                    <h2>常用pixiv标签</h2>
+                    <h5>所有tag均来源pixiv。</h5>
+                    <br>
+                    <h3>常用人物标签</h3>
+                    <style>
+                        .compact-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 1rem 0;
+                            font-size: 0.9em;
+                        }
+
+                        .compact-table td {
+                            padding: 8px 12px;
+                            border: 1px solid #e0e0e0;
+                            white-space: nowrap;
+                        }
+
+                        .compact-table tr:nth-child(even) {
+                            background-color: #f8f9fa;
+                        }
+
+                        @media (max-width: 768px) {
+                            .compact-table {
+                                display: block;
+                                overflow-x: auto;
+                            }
+
+                            .compact-table td {
+                                min-width: 120px;
+                            }
+                        }
+                    </style>
+
+                    <table class="compact-table">
+                        <tbody>
+                            <tr>
+                                <td>美少女（美少女）</td>
+                                <td>ロリ（萝莉）</td>
+                                <td>ショタ（正太）</td>
+                                <td>メイド（女仆）</td>
+                            </tr>
+                            <tr>
+                                <td>バニーガール（兔女郎）</td>
+                                <td>猫耳（猫耳）</td>
+                                <td>獣耳（兽耳）</td>
+                                <td>天使（天使）</td>
+                            </tr>
+                            <tr>
+                                <td>悪魔（恶魔）</td>
+                                <td>魔法少女（魔法少女）</td>
+                                <td>戦闘服（战斗服）</td>
+                                <td>和服（和服）</td>
+                            </tr>
+                            <tr>
+                                <td>巫女（巫女）</td>
+                                <td>吸血鬼（吸血鬼）</td>
+                                <td>エルフ（精灵）</td>
+                                <td>ネコミミ（猫耳娘）</td>
+                            </tr>
+                            <tr>
+                                <td>メガネ（眼镜）</td>
+                                <td>ツインテール（双马尾）</td>
+                                <td>ポニーテール（单马尾）</td>
+                                <td>制服（制服）</td>
+                            </tr>
+                            <tr>
+                                <td>水着（泳装）</td>
+                                <td>巨乳（巨乳）</td>
+                                <td>貧乳（贫乳）</td>
+                                <td>セーラー服（水手服）</td>
+                            </tr>
+                            <tr>
+                                <td>ゴスロリ（哥特萝莉）</td>
+                                <td>メカ（机械）</td>
+                                <td>サイボーグ（赛博格）</td>
+                                <td>騎士（骑士）</td>
+                            </tr>
+                            <tr>
+                                <td>王子（王子）</td>
+                                <td>姫（公主）</td>
+                                <td>魔王（魔王）</td>
+                                <td>忍者（忍者）</td>
+                            </tr>
+                            <tr>
+                                <td>サムライ（武士）</td>
+                                <td>ポケモン（宝可梦）</td>
+                                <td>ヴァンパイア（吸血鬼）</td>
+                                <td>サイバー（赛博）</td>
+                            </tr>
+                            <tr>
+                                <td>アンドロイド（机器人）</td>
+                                <td>ツンデレ（傲娇）</td>
+                                <td>ヤンデレ（病娇）</td>
+                                <td>眼帯（眼罩）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+
+                    <h3>常用画风标签</h3>
+                    <table class="compact-table">
+                        <tbody>
+                            <tr>
+                                <td>イラスト（插画）</td>
+                                <td>水彩風（水彩风格）</td>
+                                <td>厚塗り（厚涂）</td>
+                                <td>セル画（赛璐珞）</td>
+                            </tr>
+                            <tr>
+                                <td>シネマティック（电影感）</td>
+                                <td>グリッチ（故障艺术）</td>
+                                <td>ポップ（波普风）</td>
+                                <td>レトロ（复古风）</td>
+                            </tr>
+                            <tr>
+                                <td>モノクロ（单色）</td>
+                                <td>サイバーパンク（赛博朋克）</td>
+                                <td colspan="2" style="border:0; padding:0"><!-- 保持表格结构 --></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <h3>常用杂项标签</h3>
+                    <table class="compact-table">
+                        <tbody>
+                            <tr>
+                                <td>背景（背景）</td>
+                                <td>風景（风景）</td>
+                                <td>星空（星空）</td>
+                                <td>花火（烟花）</td>
+                            </tr>
+                            <tr>
+                                <td>武器（武器）</td>
+                                <td>メカニック（机械）</td>
+                                <td>ファンタジー（奇幻）</td>
+                                <td>SF（科幻）</td>
+                            </tr>
+                            <tr>
+                                <td>都市（城市）</td>
+                                <td>建築（建筑）</td>
+                                <td>学校（学校）</td>
+                                <td>戦争（战争）</td>
+                            </tr>
+                            <tr>
+                                <td>グルメ（美食）</td>
+                                <td>動物（动物）</td>
+                                <td>植物（植物）</td>
+                                <td>季節（季节）</td>
+                            </tr>
+                            <tr>
+                                <td>雨（雨）</td>
+                                <td>雪（雪）</td>
+                                <td>海（海洋）</td>
+                                <td>山（山脉）</td>
+                            </tr>
+                            <tr>
+                                <td>夜空（夜空）</td>
+                                <td>雲（云朵）</td>
+                                <td>クリスマス（圣诞节）</td>
+                                <td>ハロウィン（万圣节）</td>
+                            </tr>
+                            <tr>
+                                <td>和風（和风）</td>
+                                <td>中華風（中国风）</td>
+                                <td>ヨーロッパ（欧洲）</td>
+                                <td>未来都市（未来都市）</td>
+                            </tr>
+                            <tr>
+                                <td>廃墟（废墟）</td>
+                                <td>ダーク（黑暗系）</td>
+                                <td>キラキラ（闪亮）</td>
+                                <td>グラデーション（渐变）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <div class="feature-card">
+                    <p>对于pixiv的标签，可以参考这个。简言之就是想要热门就敲几个0<a
+                            href="https://ngabbs.com/read.php?tid=35394190&rand=443">链接</a></p>
+
+                </div>
+                <!-- 其他命令卡片... -->
+            </div>
+        </section>
+
+        <section class="doc-section" id="whattodo">
+            <h2>✨ 接下来的工作</h2>
+            <div class="feature-list">
+                <div class="feature-card">
+                    <li><s>接入大语言模型聊天</s>
+                    </li>
+                    <li><s>改用更好的图片api源</s>
+                    </li>
+                    <li><s>改用NcatBot 插件形式部署</s>
+                    </li>
+                    <li>陆续完善github上的该项目
+                    </li>
+                </div>
+                <!-- 其他功能卡片... -->
+            </div>
+        </section>
+
+        <section class="doc-section" id="notice">
+            <h2>写在后面</h2>
+            <div class="warning">
+                <h3>提示</h3>
+                <ul>
+                    <li>尽量不要短时间内刷屏（一秒三次以上）</li>
+                    <!-- 其他提示... -->
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h4>感谢无私的API接口</h4>
+                <p>
+                    <font size="2">感谢Jitsu的API接口https://img.jitsu.top/#/</font>
+                    <br>
+                    <font size="2">感谢小渡可的API接口https://api.dwo.cc/</font>
+                    <br>
+                    <font size="2">感谢智谱清言</font>
+                </p>
+            </div>
+            <br>
+        </section>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="footer">
+        <a href="https://tsing-you.github.io/" class="nav-button">返回主页</a>
+        <a href="https://github.com/Tsing-You/qqbot" class="nav-button">查看源码</a>
+    </div>
+
+    <script>
+        // 自动高亮当前章节
+        const sections = document.querySelectorAll('.doc-section');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function activateNav()
+        {
+            let current = '';
+            sections.forEach(section =>
+            {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - sectionHeight * 0.25) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link =>
+            {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // 滚动监听
+        window.addEventListener('scroll', () =>
+        {
+            requestAnimationFrame(activateNav);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor =>
+        {
+            anchor.addEventListener('click', function (e)
+            {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tsing-You开发的QQ机器人使用说明文档">
+    <title>QQ机器人使用文档</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 220px;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-link {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: #3498db15;
+            color: #3498db;
+        }
+
+        .sidebar-link.active::before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 60%;
+            background: #3498db;
+            border-radius: 3px;
+        }
+
+        /* 主内容区 */
+        .container {
+            max-width: 800px;
+            margin-left: 280px;
+            padding: 2rem 1.5rem;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* 文档内容样式 */
+        .doc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .doc-section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+        }
+
+        .footer {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s;
+            margin: 0 10px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                margin-left: auto;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .doc-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 侧边栏导航 -->
+    <nav class="sidebar">
+        <ul class="sidebar-nav">
+            <li><a href="#features" class="sidebar-link">主要功能</a></li>
+            <li><a href="#quickstart" class="sidebar-link">快速开始</a></li>
+            <li><a href="#commands" class="sidebar-link">命令列表</a></li>
+            <li><a href="#whattodo" class="sidebar-link">接下来的工作</a></li>
+            <li><a href="#notice" class="sidebar-link">写在后面</a></li>
+            <li><a href="https://tsing-you.github.io/history.html" class="sidebar-link">改进日志</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主内容 -->
+    <div class="container">
+        <header class="doc-header">
+            <h1>QQ机器人使用文档</h1>
             <p>版本 0.7 | 最后更新：2025年4月5日</p>
         </header>
 
