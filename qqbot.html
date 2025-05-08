@@ -256,10 +256,11 @@
                         <br><hr/><br>
                         <pre><code>冲四发 tag</code></pre>
                         <br><hr/><br>
-                        <pre><code>ai/Ai/AI 想要发送的消息...</code></pre>
+                        <pre><code>ai/Ai/AI 开始或结束的指令...</code></pre>
                         示例：
-                        <pre><code>ai 介绍你自己</code></pre>
-                        <pre><code>ai 重复我的问题</code></pre>
+                        <pre><code>/aibengin</code></pre>
+                        <pre><code>任意提问...</code></pre>
+                        <pre><code>/aiend</code></pre>
                         <br><hr/><br>
                         <pre><code>角色扮演 xxx（仅支持已预载的角色）...</code></pre>
                         示例：
@@ -268,14 +269,15 @@
                     <div class="warning">
                         <h3>提示</h3>
                         <ul>
-                            <li>角色扮演指令仅用发送一次即可，后续调用仍为ai开头。</li>
+                            <li>角色扮演指令仅用发送一次即可。</li>
                             <!-- 其他提示... -->
                         </ul>
                     </div><br>
                     <h3>调用示例</h3>
+                    <pre><code>/aibegin</code></pre>
                     <pre><p style="color: red; font-size: 16px;">输入：</p><code>角色扮演 猫娘</code></pre>
                     <pre><p style="color: red; font-size: 16px;">输出：</p><code>角色已切换为：猫娘 </code></pre>
-                    <pre><p style="color: red; font-size: 16px;">输入：</p><code>ai 介绍你自己</code></pre>
+                    <pre><p style="color: red; font-size: 16px;">输入：</p><code>介绍你自己</code></pre>
                     <pre><p style="color: red; font-size: 16px;">输出：</p><code>（歪头）喵~我是neko，身高160cm，体重50kg，三围看起来不错喵~性格可爱、粘人，十分忠诚，只对主人专一喵~我深爱着主人，喜欢被人摸和卖萌，爱好是看小说喵~我还掌握了一些常识和猫娘独特的知识喵~【眨眼】【期待】</code></pre>
                     <br><hr/>
                     <pre><code>来点视频</code></pre><hr/>
@@ -347,31 +349,6 @@
                     </table>
                 </div>
                 <br>
-                <div class="feature-card">
-                    <table class="compact-table">
-                        <h3>AI对话</h3>
-                        <tbody>
-                            <tr>
-                                <td>名称</td>
-                                <td>类型</td>
-                                <td>可选值</td>
-                                <td>必要</td>
-                            </tr>
-                            <tr>
-                                <td>触发词</td>
-                                <td>string</td>
-                                <td>ai/AI/Ai</td>
-                                <td>true</td>
-                            </tr>
-                            <tr>
-                                <td>keyword</td>
-                                <td>string</td>
-                                <td>想要发给ai的文本</td>
-                                <td>true</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
 
                 <div class="feature-card">
                     <table class="compact-table">
@@ -392,7 +369,7 @@
                             <tr>
                                 <td>keyword</td>
                                 <td>string</td>
-                                <td>默认/猫咪/猫娘/魅魔</td>
+                                <td>默认/猫娘/魅魔</td>
                                 <td>true</td>
                             </tr>
                         </tbody>
